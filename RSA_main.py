@@ -36,11 +36,12 @@ def calculate_gcd(x,y):
     First i need to employ a simple RSA encryption to get full credit for the final project"""
 
 # Step 1 RSA Key Generation
-# the "sender" selects two prime numbers p and q and an exponent e
-# p, q, and e are the private key for the sender
+# the "reciever" selects two prime numbers p and q and an exponent e
+# p, q, and e are the private key for the reciever
 cstr = "Step 1 for RSA Encryption"
 print('\n',cstr.center(40, '-'))
-print ("The sender selects two prime number p and q and an exponent e")
+print("Say you and a frined want to encrypt a message and send it to one another using RSA ecrpytion methods")
+print ("The reciever selects two prime number p and q and an exponent e")
 print("Rules for picking P and q".center(40,'*'))
 print("1. p and q must be large numbers","\n2. e must be relatively prime to (p-1)X(q-1)")
 
@@ -67,6 +68,7 @@ print("Based on your p and q values of ",p, " and ", q, "\nyou need to select a 
 #     e = input("what would you like your e value to be: ")
 
 
+# checks to make sure that the exponent e is relatively prime to (p-1)(q-1)
 while True:
     e = int(input("what would you like your exponent value e to be? :"))
     checkNum = calculate_gcd(e,x)
@@ -76,7 +78,19 @@ while True:
     else:
         print("That number is not relatively prime to ",x," please try again")
 
-print("Now that you have your")
+print("Now that the reciever has their private keys p, q, and e")
+print("The recievers public key can be computed")
+print("The public key is a pair of integers, n = pq, and e")
+n = p*q
+print("n = ",n, " and e = ", e)
+
+print("The one who wants to send the encrypted message can now take the public\n",
+      "key values from the person who is recieving and encrypt a message\n")
+
+print("To encrypt a message and create the cyphertext, the sender uses modular exponentiation\n")
+
+text = input("enter a message that you would like to encrypt below\n")
+
 
 
 
