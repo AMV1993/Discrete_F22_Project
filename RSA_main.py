@@ -103,9 +103,42 @@ text_test_ASCII = list(bytes(text_test, 'ascii'))
 print("This is the message in ascii seperated by character in a list")
 print(text_test_ASCII)
 
-#STEP 2 convert ascii values in list into hex values 
+#STEP 2 convert ascii values in list into hex values and remove "0x" character from front of each list index
+i = 0
 for i in range (len(text_test_ASCII)):
-    text_test_ASCII = hex(text_test_ASCII)
+    text_test_ASCII[i] = hex(text_test_ASCII[i])
+
+print("This is the ascii message converted into hex values")
+print(text_test_ASCII)
+
+# formatting the list without the '0x'
+print("removing all of the '0x' characters in front of each hex value")
+for i in range(len(text_test_ASCII)):
+    text_test_ASCII[i] = (text_test_ASCII[i]).lstrip("0x")
+
+print(text_test_ASCII)
+
+# concatenate all of the hex numbers in the list to be one long hex number 
+print("converting to one large hex value")
+hex_text_test = ''.join(text_test_ASCII)
+print(hex_text_test)
+
+#STEP 3 Convert the hex string into an integer that can do math
+int_text_test = int(hex_text_test,16)
+print("Converting Hex sting into a single integer")
+print(int_text_test)
+
+#STEP 4 RSA ENCRYPTION (this has been the hard part for me which is getting the decryption to work properly)
+def mod_exponentiation(M, e, n):
+    C = math.pow(M,e)%n
+    return C
+
+## NEED TO ADD A CHECK to see make sure n > M , n should be huge honestly
+print(" ")
+Cyper_text = mod_exponentiation(int_text_test,e,n)
+print("This is the cyper text of the integer version of the original text")
+print(Cyper_text)
+
 
 
 
