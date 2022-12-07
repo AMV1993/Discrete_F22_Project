@@ -91,6 +91,8 @@ print("To encrypt a message and create the cyphertext, the sender uses modular e
 
 text = input("enter a message that you would like to encrypt below\n")
 
+print(text+" : Is this correct ? ")
+
 
 
 
