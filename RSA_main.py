@@ -91,7 +91,21 @@ print("To encrypt a message and create the cyphertext, the sender uses modular e
 
 text = input("enter a message that you would like to encrypt below\n")
 
-print(text+" : Is this correct ? ")
+text_test = ("Hello World")
+
+#############################################################################
+# The order in which I would like to go or am thinking of going is as follows:
+# STRING -> ASCII -> HEX -> INT -> encrypt data -> decrpyt data -> INT -> HEX -> ASCII -> STRING
+#############################################################################
+
+#STEP 1 convert text_test into ASCII
+text_test_ASCII = list(bytes(text_test, 'ascii'))
+print("This is the message in ascii seperated by character in a list")
+print(text_test_ASCII)
+
+#STEP 2 convert ascii values in list into hex values 
+for i in range (len(text_test_ASCII)):
+    text_test_ASCII = hex(text_test_ASCII)
 
 
 
