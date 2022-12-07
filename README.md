@@ -11,4 +11,10 @@ Discrete Mathematics final project - Fall 2022 - CU Boulder
   
   # Outcomes/results
   
+# NOTES:
+- There are libraries that already exist in python to use RSA type encryption. 
+- This program is a "brute force method" of trying to encrypt / decrypt using RSA methods. 
+
+# major hang up's / issues
+- converting a string into a number that does not lose the information of what each character in the string represents. 
 
