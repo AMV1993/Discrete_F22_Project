@@ -140,6 +140,9 @@ print("This is the cyper text of the integer version of the original text")
 print(Cyper_text)
 
 
+#STEP 5 NEED TO GENERATE d which is the key to decryption, d is the inverse of e%(p-1)(q-1)
+# there exists an integer k such that
+# ed = 1 + k(p-1)(q-1)
 
 
 
