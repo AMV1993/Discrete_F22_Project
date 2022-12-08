@@ -11,6 +11,7 @@
 #Imports#
 import math
 from fractions import gcd
+from typing import Tuple
 
 
 #Functions#
@@ -130,7 +131,7 @@ print(int_text_test)
 
 #STEP 4 RSA ENCRYPTION (this has been the hard part for me which is getting the decryption to work properly)
 def mod_exponentiation(M, e, n):
-    C = math.pow(M,e)%n
+    C = (M**e)%n
     return C
 
 ## NEED TO ADD A CHECK to see make sure n > M , n should be huge honestly
@@ -143,6 +144,28 @@ print(Cyper_text)
 #STEP 5 NEED TO GENERATE d which is the key to decryption, d is the inverse of e%(p-1)(q-1)
 # there exists an integer k such that
 # ed = 1 + k(p-1)(q-1)
+
+def extendedEclid(a: int, b: int) -> Tuple[int, int, int]:
+    """Returns the GCD of a and b and the Bezout Coeffiecients."""
+    if b == 0:
+        return(a,1,0)
+    q,r = divmod(a,b)
+    d,s,t = extendedEclid(b,r)
+    return d,t, s-q*t
+
+g,s,t = extendedEclid(e,x)
+
+d = s%x
+
+print("d = :", d)
+
+# DECODE the message
+decoded_msg = Cyper_text**d%n
+print("Decoded message :",decoded_msg)
+
+
+
+
 
 
 
